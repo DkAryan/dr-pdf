@@ -37,9 +37,14 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <button className="bg-[#0066FF] hover:bg-[#0052cc] text-white px-4 py-2 rounded-md font-medium transition-all duration-200 shadow-lg shadow-blue-600/20">
-              Get Started
-            </button>
+            
+            {/* Desktop: Button changed to Link */}
+            <Link 
+              href="/tools"
+              className="bg-[#0066FF] hover:bg-[#0052cc] text-white px-4 py-2 rounded-md font-medium transition-all duration-200 shadow-lg shadow-blue-600/20"
+            >
+              Explore Tools
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,10 +73,16 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
+            
             <div className="px-3 pt-2">
-              <button className="w-full bg-[#0066FF] hover:bg-[#0052cc] text-white px-4 py-2 rounded-md font-medium transition-colors duration-200">
-                Get Started
-              </button>
+              {/* Mobile: Button changed to Link with click handler to close menu */}
+              <Link 
+                href="/tools"
+                onClick={() => setIsOpen(false)}
+                className="block text-center w-full bg-[#0066FF] hover:bg-[#0052cc] text-white px-4 py-2 rounded-md font-medium transition-colors duration-200"
+              >
+                Explore Tools
+              </Link>
             </div>
           </div>
         </div>
