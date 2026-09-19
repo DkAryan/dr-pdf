@@ -7,6 +7,8 @@ import os from "os";
 
 const execPromise = util.promisify(exec);
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request) {
   try {
     const formData = await request.formData();
