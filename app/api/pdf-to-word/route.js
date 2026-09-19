@@ -1,9 +1,6 @@
-// app/api/pdf-to-word/route.js
 import { NextResponse } from "next/server";
 import { Document, Packer, Paragraph, TextRun } from "docx";
-const pdfParse = require("pdf-parse");
 
-// 🔴 FIX: Next.js ko batayein ki ye dynamic API route hai (build time par run na ho)
 export const dynamic = 'force-dynamic';
 
 export async function POST(request) {
@@ -17,6 +14,9 @@ export async function POST(request) {
 
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
+
+    // 🔴 FIX: Dynamic import taaki build time par error na aaye
+    const pdfParse = (await import("pdf-parse")).default;
 
     const pdfData = await pdfParse(buffer);
     let text = pdfData.text;
